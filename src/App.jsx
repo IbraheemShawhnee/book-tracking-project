@@ -1,13 +1,31 @@
-import "./App.css";
-import { Button } from "@mui/material";
+import { Suspense } from "react";
+import {
+	RouterProvider,
+	Route,
+	createBrowserRouter,
+	createRoutesFromElements,
+} from "react-router-dom";
+import Header from "./Pages/Header";
+import Loading from "./Pages/Loading";
+import { routes } from "./Utils/Utils";
+import React from "react";
+import NotFound from "./Pages/NotFound";
+
 function App() {
+	const router = createBrowserRouter(
+		createRoutesFromElements(
+			<Route element={<Header />} errorElement={<NotFound />}>
+				{routes.map((route, idx) => (
+					<Route path={route.path} key={idx} element={route.component} />
+				))}
+			</Route>
+		)
+	);
+
 	return (
-		<>
-			<h1 className="text-sm font-medium text-red-900">Hello world!</h1>
-			<Button variant="text" className="bg-black text-red-600">
-				Texhh
-			</Button>
-		</>
+		<Suspense fallback={<Loading />}>
+			<RouterProvider router={router} />
+		</Suspense>
 	);
 }
 
