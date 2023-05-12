@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import SearchBar from "../../Components/HeaderComponents/SearchBar";
 import LoginButton from "../../Components/HeaderComponents/LoginButton";
+import Footer from "../../Components/Footer/Footer";
 
 const Header = () => {
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -55,6 +56,7 @@ const Header = () => {
 				</Toolbar>
 			</AppBar>
 			<Outlet />
+			{/* <Footer /> */}
 		</>
 	);
 };
