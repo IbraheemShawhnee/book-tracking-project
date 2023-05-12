@@ -1,12 +1,8 @@
 import { Container, Box, Typography } from "@mui/material";
 import React from "react";
+import { Cards } from "./Utils/utils";
 import Card from "../../Components/HomeComponents/Card";
 import Icon from "../../Components/Icon";
-import ManageSearchIcon from "@mui/icons-material/ManageSearch";
-import NewspaperIcon from "@mui/icons-material/Newspaper";
-import GroupsIcon from "@mui/icons-material/Groups";
-import DataSaverOffIcon from "@mui/icons-material/DataSaverOff";
-
 const Home = () => {
 	return (
 		<Box className="flex-1 dark:bg-gray-700 grid place-items-center bg-wave dark:bg-wave-dark bg-no-repeat bg-scroll bg-cover bg-center">
@@ -26,38 +22,11 @@ const Home = () => {
 					</Typography>
 				</Box>
 				<Box className="mt-8 grid gap-8 grid-cols-1 md:grid-cols-2">
-					<Card
-						title={"Discover"}
-						description={"Explore the vast collection of books available"}
-					>
-						<Icon
-							icon={<ManageSearchIcon fontSize="large" color="primary" />}
-						/>
-					</Card>
-					<Card
-						title={"Manage"}
-						description={
-							"Give books a status, set your rating, leave your thoughts in notes"
-						}
-					>
-						<Icon icon={<NewspaperIcon fontSize="large" color="primary" />} />
-					</Card>
-					<Card
-						title={"Track"}
-						description={"View your statistics wrapped in nice visual charts"}
-					>
-						<Icon icon={<GroupsIcon fontSize="large" color="primary" />} />
-					</Card>
-					<Card
-						title={"Share"}
-						description={
-							"View other people's library and let them view yours, or set your profile private"
-						}
-					>
-						<Icon
-							icon={<DataSaverOffIcon fontSize="large" color="primary" />}
-						/>
-					</Card>
+					{Cards.map(({ title, description, icon, index }) => (
+						<Card key={Cards.id} title={title} description={description}>
+							<Icon icon={icon} />
+						</Card>
+					))}
 				</Box>
 			</Box>
 		</Box>
