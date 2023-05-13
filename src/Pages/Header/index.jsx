@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { AppBar, Box, Toolbar } from "@mui/material";
-=======
 import { AppBar, Box, Toolbar} from "@mui/material";
->>>>>>> feature/HomePageFeature
 import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import SearchBar from "../../Components/HeaderComponents/SearchBar";
@@ -60,11 +56,7 @@ const Header = () => {
 				</Toolbar>
 			</AppBar>
 			<Outlet />
-<<<<<<< HEAD
 			<Footer />
-=======
-			{/* <Footer /> */}
->>>>>>> feature/HomePageFeature
 		</>
 	);
 };
