@@ -9,7 +9,7 @@ import Loading from "./Pages/Loading";
 import { routes } from "./Utils/Utils";
 import React from "react";
 import NotFound from "./Pages/NotFound";
-import Layout from "./Pages/Layout/Layout";
+import Layout from "./Layouts/Layout";
 
 function App() {
 	const router = createBrowserRouter(
