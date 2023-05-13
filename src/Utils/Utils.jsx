@@ -6,7 +6,7 @@ const Settings = lazy(() => import("../Pages/Settings/index.jsx"));
 const Statistics = lazy(() => import("../Pages/Statistics/index.jsx"));
 // const Home = lazy(() => import("../Pages/Home"));
 export const routeName = {
-	HOME: "Home",
+	Home: "Home",
 	Profile: "Profile",
 	Settings: "Settings",
 	Statistics: "Statistics",
@@ -15,7 +15,7 @@ export const routeName = {
 export const routes = [
 	{
 		path: "/",
-		title: routeName.HOME,
+		title: routeName.Home,
 		component: <Home />,
 	},
 	{
