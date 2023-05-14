@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { collection, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyBSZukp9HUMdxJFn7ohumUGdiLrECPPjAg",
@@ -10,4 +12,16 @@ const firebaseConfig = {
 	measurementId: "G-YY0S46WXFL",
 };
 
+const provider = new GoogleAuthProvider();
 const app = initializeApp(firebaseConfig);
+
+//Auth Logic
+export const auth = getAuth(app);
+export const signIn = async () => await signInWithPopup(auth, provider);
+export const signOutUser = () => signOut(auth);
+export const isUserSignedIn = () => Boolean(auth.currentUser);
+
+//Firestore Logic
+const db = getFirestore(app);
+export const usersRef = collection(db, 'users');
+export let booksRef;
