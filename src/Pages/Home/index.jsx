@@ -22,8 +22,8 @@ const Home = () => {
 					</Typography>
 				</Box>
 				<Box className="mt-8 grid gap-8 grid-cols-1 md:grid-cols-2">
-					{Cards.map(({ title, description, icon, index }) => (
-						<Card key={Cards.id} title={title} description={description}>
+					{Cards.map(({ title, description, icon }, index) => (
+						<Card key={index} title={title} description={description}>
 							<Icon icon={icon} />
 						</Card>
 					))}
