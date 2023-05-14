@@ -33,7 +33,7 @@ const Dropdown = ({ name }) => {
 					className="flex items-center gap-1 w-full px-4 py-2 text-left text-black text-sm dark:text-white  hover:text-gray-500 dark:hover:text-gray-300"
 				>
 					<Icon icon={<SettingsApplicationsIcon />} />
-					<Typography>Settongs</Typography>
+					<Typography>Settings</Typography>
 				</Link>
 			</Box>
 		</motion.div>

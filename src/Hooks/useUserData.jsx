@@ -20,7 +20,6 @@ export default function useUserData() {
 
 				onSnapshot(doc(usersRef, user.uid), (doc) => {
 					const data = doc.data();
-
 					setName(data.name);
 					setProfilePic(data.image);
 					setPrivateStatus(data.private);

@@ -5,11 +5,7 @@ import {
 	signInWithPopup,
 	signOut,
 } from "firebase/auth";
-import {
-	getFirestore,
-	collection,
-} from "firebase/firestore";
-
+import { getFirestore, collection } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyBSZukp9HUMdxJFn7ohumUGdiLrECPPjAg",
@@ -18,7 +14,6 @@ const firebaseConfig = {
 	storageBucket: "library-bf484.appspot.com",
 	messagingSenderId: "756572754345",
 	appId: "1:756572754345:web:0f7646f27405f481a674b8",
-	measurementId: "G-YY0S46WXFL",
 };
 
 const provider = new GoogleAuthProvider();
@@ -34,4 +29,3 @@ export const isUserSignedIn = () => Boolean(auth.currentUser);
 const db = getFirestore(app);
 export const usersRef = collection(db, "users");
 export let booksRef;
-
