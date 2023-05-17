@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
 import Icon from "../Icon";
+import PropTypes from "prop-types";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ListItemText from "@mui/material/ListItemText";
 
@@ -45,9 +46,9 @@ const SearchType = ({ setSearchType, searchType }) => {
 	);
 };
 
-// SearchType.propTypes = {
-// 	setSearchType: PropTypes.func,
-// 	searchType: PropTypes.string,
-// };
+SearchType.propTypes = {
+	setSearchType: PropTypes.func,
+	searchType: PropTypes.string,
+};
 
 export default SearchType;

@@ -12,6 +12,7 @@ import {
 	doc,
 	setDoc,
 	getDoc,
+	deleteDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -55,3 +56,26 @@ onAuthStateChanged(auth, async (user) => {
 
 	booksRef = collection(usersRef, user.uid, "books");
 });
+
+export async function saveBook(id, book) {
+	try {
+		await setDoc(doc(booksRef, id), book);
+	} catch (error) {
+		alert("Error writing new message to Firebase Database", error);
+	}
+}
+
+export async function getBookbyId(id) {
+	const bookRef = doc(booksRef, id);
+	const docSnap = await getDoc(bookRef);
+
+	if (docSnap.exists()) {
+		return docSnap.data();
+	} else {
+		return;
+	}
+}
+
+export async function deleteBookById(id) {
+	await deleteDoc(doc(booksRef, id));
+}
