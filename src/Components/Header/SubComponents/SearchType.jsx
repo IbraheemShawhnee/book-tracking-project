@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
-import Icon from "../Icon";
+import Icon from "../../Icon";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ListItemText from "@mui/material/ListItemText";
+import PropTypes from "prop-types";
 
 const SearchType = ({ setSearchType, searchType }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +46,9 @@ const SearchType = ({ setSearchType, searchType }) => {
 	);
 };
 
-// SearchType.propTypes = {
-// 	setSearchType: PropTypes.func,
-// 	searchType: PropTypes.string,
-// };
+SearchType.propTypes = {
+	setSearchType: PropTypes.func,
+	searchType: PropTypes.string,
+};
 
 export default SearchType;
