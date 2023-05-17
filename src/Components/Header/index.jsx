@@ -1,9 +1,8 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
-import LoginButton from "./LoginButton";
-import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
+import SearchBar from "./SubComponents/SearchBar";
+import LoginButton from "./SubComponents/LoginButton";
 
 const Header = () => {
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -41,7 +40,7 @@ const Header = () => {
 									<path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" />
 								</svg>
 								<span
-									variant="h1"
+						
 									className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl"
 								>
 									BookBite

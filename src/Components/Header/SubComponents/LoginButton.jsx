@@ -1,10 +1,10 @@
 import Dropdown from "./Dropdown";
 import React from "react";
-import { signIn } from "../../Firebase";
-import useUserData from "../../Hooks/useUserData";
+import { signIn } from "../../../Firebase";
+import useUserData from "../../../Hooks/useUserData";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Box, Button } from "@mui/material";
-import Icon from "../Icon/index";
+import Icon from "../../Icon/index";
 const LoginButton = () => {
 	const [name, profilePic] = useUserData();
 	return (
