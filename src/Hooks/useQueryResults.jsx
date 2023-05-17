@@ -8,6 +8,7 @@ export default function useQueryResults(query) {
 			.then((response) => response.json())
 			.then((data) => {
 				setResults(data);
+				console.log(data);
 			})
 			.catch(() => {
 				setResults({});

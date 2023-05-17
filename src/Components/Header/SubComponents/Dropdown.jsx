@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Box, Typography } from "@mui/material";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import Icon from "../Icon";
+import Icon from "../../Icon";
 import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
 import SettingsIcon from "@mui/icons-material/Settings";
 const Dropdown = ({ name }) => {

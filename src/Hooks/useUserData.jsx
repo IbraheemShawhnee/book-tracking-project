@@ -11,12 +11,12 @@ export default function useUserData() {
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
 			(async () => {
-				// if (!user) {
-				// 	setName(undefined);
-				// 	setProfilePic(undefined);
-				// 	setPrivateStatus(undefined);
-				// 	return;
-				// }
+				if (!user) {
+					setName(undefined);
+					setProfilePic(undefined);
+					setPrivateStatus(undefined);
+					return;
+				}
 
 				onSnapshot(doc(usersRef, user.uid), (doc) => {
 					const data = doc.data();

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
-import Icon from "../Icon";
-import PropTypes from "prop-types";
+import Icon from "../../Icon";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ListItemText from "@mui/material/ListItemText";
+import PropTypes from "prop-types";
 
 const SearchType = ({ setSearchType, searchType }) => {
 	const [isOpen, setIsOpen] = useState(false);
