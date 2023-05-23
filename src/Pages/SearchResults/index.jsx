@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Box, Container, Typography, Button } from "@mui/material";
+import Loading from "../../Components/SearchResultsComponents/Loading";
+
 import Book from "../../Components/SearchResultsComponents/Book";
 import BookEditModal from "../../Components/SearchResultsComponents/BookEditModal";
 import SuccessPopup from "../../Components/Popups/SuccessPopup";
 import { Request } from "../../Utils/APIUtils";
-import Loading from "../../Components/Shared/Loading";
-
 const SearchResults = () => {
 	const { query } = useParams();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -94,41 +94,27 @@ const SearchResults = () => {
 
 	return (
 		<Container className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white flex flex-col gap-6 py-4 px-6 lg:px-32 2xl:px-72">
-			<Typography className="flex justify-center gap-4 mt-4">
-				Total Results:{" "}
-				{totalItems - Math.min(totalItems, currentPage * itemsPerPage)}. Showing{" "}
+			<Typography>
+				Total Results: {totalItems}. Showing{" "}
 				{Math.min(totalItems, currentPage * itemsPerPage)} results
 			</Typography>
 			<ul className="flex flex-col items-center gap-6 m-0">
 				{results.map((item) => (
-					<Book
-						item={item}
-						openModal={openModal}
-						key={item.id}
-						sameSiteAttribute="None"
-					/>
+					<Book item={item} openModal={openModal} key={item.id} />
 				))}
 			</ul>
-			<Box className="flex justify-center gap-4 mt-4">
+			<div>
 				{currentPage > 1 && (
-					<Button
-						variant="outlined"
-						onClick={handlePrevPage}
-						className="bg-white text-gray-800 hover:bg-gray-200"
-					>
+					<Button variant="outlined" onClick={handlePrevPage}>
 						Previous
 					</Button>
 				)}
 				{currentPage * itemsPerPage < totalItems && (
-					<Button
-						variant="outlined"
-						onClick={handleNextPage}
-						className="bg-white text-gray-800 hover:bg-gray-200"
-					>
+					<Button variant="outlined" onClick={handleNextPage}>
 						Next
 					</Button>
 				)}
-			</Box>
+			</div>
 			<AnimatePresence initial={false} mode="wait">
 				{isModalOpen && (
 					<BookEditModal

@@ -128,7 +128,15 @@ const Book = ({ item, openModal }) => {
 						>
 							{item.volumeInfo.title}
 						</Typography>
-						{renderStatusIcon()}
+						{isUserSignedIn() ? (
+							<Button
+								variant="contained"
+								className="transition-colors duration-300 transform rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 hover:cursor-pointer"
+								onClick={() => openModal(item)}
+							>
+								<Icon icon={<AddIcon />} />
+							</Button>
+						) : null}
 					</Box>
 					<Typography
 						variant="body1"

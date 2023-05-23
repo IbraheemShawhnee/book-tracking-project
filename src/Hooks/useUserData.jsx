@@ -3,6 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { onSnapshot, doc } from "firebase/firestore";
 import { auth, usersRef } from "../Firebase";
 
+
 export default function useUserData() {
 	const [name, setName] = useState("");
 	const [profilePic, setProfilePic] = useState("");
