@@ -93,7 +93,7 @@ const SearchResults = () => {
 	}
 
 	return (
-		<Container className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white flex flex-col gap-6 py-4 px-6 lg:px-32 2xl:px-72">
+		<Box className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white flex flex-col gap-6 py-4 px-6 lg:px-32 2xl:px-72">
 			<Typography className="flex justify-center gap-4 mt-4">
 				Total Results:{" "}
 				{totalItems - Math.min(totalItems, currentPage * itemsPerPage)}. Showing{" "}
@@ -140,7 +140,7 @@ const SearchResults = () => {
 				)}
 				{isPopupOpen && <SuccessPopup text="Book edited successfully" />}
 			</AnimatePresence>
-		</Container>
+		</Box>
 	);
 };
 
