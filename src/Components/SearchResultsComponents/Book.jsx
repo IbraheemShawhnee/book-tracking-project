@@ -76,31 +76,6 @@ const Book = ({ item, openModal }) => {
 	if (!item.volumeInfo.imageLinks) {
 		return "";
 	}
-
-	const renderStatusIcon = () => {
-		if (isUserSignedIn()) {
-			if (item.status) {
-				return (
-					<Icon
-						icon={<AddIcon />}
-						color={item.status === "Reading" ? "primary" : "default"}
-					/>
-				);
-			} else {
-				return (
-					<Button
-						variant="contained"
-						className="bg-white text-gray-800 hover:bg-gray-200"
-						onClick={() => openModal(item)}
-					>
-						<Icon icon={<AddIcon />} />
-					</Button>
-				);
-			}
-		}
-		return null;
-	};
-
 	return (
 		<li className="w-full dark:w-full dark:bg-gray-700">
 			<Box className="flex gap-3 sm:gap-6">
