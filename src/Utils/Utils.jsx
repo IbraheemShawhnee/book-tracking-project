@@ -25,7 +25,7 @@ export const routes = [
 		component: <Statistics />,
 	},
 	{
-		path: "/Profile",
+		path: "/profile/:username",
 		title: routeName.Profile,
 		component: <Profile />,
 	},

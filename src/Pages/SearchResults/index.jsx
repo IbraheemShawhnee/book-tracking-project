@@ -85,48 +85,63 @@ const SearchResults = () => {
 	if (!totalItems) {
 		// When there are no books
 		return (
-			<Box className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white py-4 px-6 lg:px-32 2xl:px-72">
-				{/* <Typography>No results found. Try changing your request</Typography> */}
-				<Loading />
+			<Box className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white py-4 px-6 lg:px-32 2xl:px-72 text-center">
+				<Typography>No results found. Try changing your request</Typography>
 			</Box>
 		);
 	}
 
 	return (
-		<Container className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white flex flex-col gap-6 py-4 px-6 lg:px-32 2xl:px-72">
-			<Typography>
-				Total Results: {totalItems}. Showing{" "}
-				{Math.min(totalItems, currentPage * itemsPerPage)} results
-			</Typography>
-			<ul className="flex flex-col items-center gap-6 m-0">
-				{results.map((item) => (
-					<Book item={item} openModal={openModal} key={item.id} />
-				))}
-			</ul>
-			<div>
-				{currentPage > 1 && (
-					<Button variant="outlined" onClick={handlePrevPage}>
-						Previous
-					</Button>
-				)}
-				{currentPage * itemsPerPage < totalItems && (
-					<Button variant="outlined" onClick={handleNextPage}>
-						Next
-					</Button>
-				)}
-			</div>
-			<AnimatePresence initial={false} mode="wait">
-				{isModalOpen && (
-					<BookEditModal
-						book={currentBook}
-						closeModal={closeModal}
-						showPopup={showPopup}
-						key="modal"
-					/>
-				)}
-				{isPopupOpen && <SuccessPopup text="Book edited successfully" />}
-			</AnimatePresence>
-		</Container>
+		<Box className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white flex flex-col gap-6 w-full ">
+			<Container>
+				<Typography className="flex justify-center gap-4 mt-4">
+					Total Results:{" "}
+					{totalItems - Math.min(totalItems, currentPage * itemsPerPage)}.
+					Showing {Math.min(totalItems, currentPage * itemsPerPage)} results
+				</Typography>
+				<ul className="flex flex-col items-center gap-6 m-0 w-full">
+					{results.map((item) => (
+						<Book
+							item={item}
+							openModal={openModal}
+							key={item.id}
+							sameSiteAttribute="None"
+						/>
+					))}
+				</ul>
+				<Box className="flex justify-center gap-4 mt-4">
+					{currentPage > 1 && (
+						<Button
+							variant="outlined"
+							onClick={handlePrevPage}
+							className="bg-white text-gray-800 hover:bg-gray-200"
+						>
+							Previous
+						</Button>
+					)}
+					{currentPage * itemsPerPage < totalItems && (
+						<Button
+							variant="outlined"
+							onClick={handleNextPage}
+							className="bg-white text-gray-800 hover:bg-gray-200"
+						>
+							Next
+						</Button>
+					)}
+				</Box>
+				<AnimatePresence initial={false} mode="wait">
+					{isModalOpen && (
+						<BookEditModal
+							book={currentBook}
+							closeModal={closeModal}
+							showPopup={showPopup}
+							key="modal"
+						/>
+					)}
+					{isPopupOpen && <SuccessPopup text="Book edited successfully" />}
+				</AnimatePresence>
+			</Container>
+		</Box>
 	);
 };
 

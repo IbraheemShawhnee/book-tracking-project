@@ -102,7 +102,7 @@ const Book = ({ item, openModal }) => {
 	};
 
 	return (
-		<li className="w-full">
+		<li className="w-full dark:w-full dark:bg-gray-700">
 			<Box className="flex gap-3 sm:gap-6">
 				<CardMedia
 					component="img"

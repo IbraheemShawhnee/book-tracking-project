@@ -10,8 +10,11 @@ import {
 	getFirestore,
 	collection,
 	doc,
+	query,
+	where,
 	setDoc,
 	getDoc,
+	getDocs,
 	deleteDoc,
 } from "firebase/firestore";
 
@@ -79,3 +82,13 @@ export async function getBookbyId(id) {
 export async function deleteBookById(id) {
 	await deleteDoc(doc(booksRef, id));
 }
+
+export async function getUserDoc(username) {
+	const q = query(usersRef, where("name", "==", username));
+	const querySnapshot = await getDocs(q);
+	const userDoc = querySnapshot.docs[0];
+
+	return userDoc;
+}
+
+// import { getUserDoc, isUserSignedIn, usersRef } from '../../Firebase';
