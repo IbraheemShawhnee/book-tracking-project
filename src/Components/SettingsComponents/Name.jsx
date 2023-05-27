@@ -18,11 +18,11 @@ const Name = ({ name, showPopup }) => {
 	};
 
 	return (
-		<Box className="flex flex-col">
+		<Box className="flex flex-col dark:text-white-900">
 			<Typography
 				variant="subtitle1"
 				color="textPrimary"
-				className="mb-2"
+				className="mb-2 dark:text-white"
 				component="label"
 				htmlFor="username"
 			>
@@ -36,11 +36,17 @@ const Name = ({ name, showPopup }) => {
 				type="text"
 				autoComplete="off"
 				className="mb-2"
+				InputProps={{
+					style: {
+						color: "white",
+						outline: "2px solid white",
+					},
+				}}
 			/>
 			<Button
 				variant="contained"
 				color="primary"
-				className={`${inputName === name ? "hidden" : ""} mb-3`}
+				className={`${inputName === name ? "hidden" : ""} dark:text-white mb-3`}
 				onClick={handleNewName}
 			>
 				Save

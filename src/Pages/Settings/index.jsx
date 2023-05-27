@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUserData from "../../hooks/useUserData";
+import useUserData from "../../Hooks/useUserData";
 import { Link } from "react-router-dom";
 import { signOutUser, deleteAllBooks } from "../../Firebase";
 import { AnimatePresence } from "framer-motion";
@@ -45,7 +45,7 @@ const Settings = () => {
 	}
 
 	return (
-		<main className="flex-1 md:grid content-start grid-cols-4 dark:bg-gray-700">
+		<main className="flex-1 md:grid content-start grid-cols-4 dark:bg-gray-700 text-white-900">
 			<Grid
 				item
 				xs={12}
@@ -61,10 +61,20 @@ const Settings = () => {
 				<hr className="my-8 h-0.5 bg-white border-0 dark:bg-gray-600" />
 
 				<Box className="mt-3">
-					<Typography variant="h6" color="textPrimary" gutterBottom>
+					<Typography
+						variant="h6"
+						color="textPrimary"
+						gutterBottom
+						className="dark:text-white"
+					>
 						Delete all library entries
 					</Typography>
-					<Typography variant="body2" color="textSecondary" gutterBottom>
+					<Typography
+						variant="body2"
+						color="textSecondary"
+						gutterBottom
+						className="dark:text-white"
+					>
 						Warning! This will permanently delete all books in your library.
 					</Typography>
 					<Button
@@ -82,10 +92,20 @@ const Settings = () => {
 				<hr className="my-8 h-0.5 bg-white border-0 dark:bg-gray-600" />
 
 				<Box className="mt-3">
-					<Typography variant="h6" color="textPrimary" gutterBottom>
+					<Typography
+						variant="h6"
+						color="textPrimary"
+						gutterBottom
+						className="dark:text-white"
+					>
 						Sign Out
 					</Typography>
-					<Typography variant="body2" color="textSecondary" gutterBottom>
+					<Typography
+						variant="body2"
+						color="textSecondary"
+						gutterBottom
+						className="dark:text-white"
+					>
 						Warning! This will sign you out.
 					</Typography>
 					<Link to="/" onClick={signOutUser}>

@@ -12,11 +12,21 @@ const ProfilePicture = ({ profilePic, showPopup }) => {
 	};
 
 	return (
-		<Box className="flex flex-col mt-6">
-			<Typography variant="h6" color="textPrimary" gutterBottom>
+		<Box className="flex flex-col mt-6 ">
+			<Typography
+				variant="h6"
+				color="textPrimary"
+				gutterBottom
+				className="dark:text-white"
+			>
 				Profile Picture
 			</Typography>
-			<Typography variant="body2" color="textSecondary" gutterBottom>
+			<Typography
+				variant="body2"
+				color="textSecondary"
+				gutterBottom
+				className="dark:text-white"
+			>
 				Allowed Formats: JPEG, PNG. Max size: 1mb.
 			</Typography>
 			<Box className="flex gap-4">

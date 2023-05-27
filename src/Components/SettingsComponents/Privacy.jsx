@@ -11,8 +11,12 @@ const Privacy = ({ privateStatus, showPopup }) => {
 	};
 
 	return (
-		<div className="flex flex-col mt-6">
-			<Typography variant="h6" color="textPrimary" className="mb-2">
+		<div className="flex flex-col mt-6 dark:text-white">
+			<Typography
+				variant="h6"
+				color="textPrimary"
+				className="mb-2 dark:text-white"
+			>
 				Privacy
 			</Typography>
 
@@ -26,10 +30,19 @@ const Privacy = ({ privateStatus, showPopup }) => {
 					control={<Radio />}
 					label={
 						<div>
-							<Typography variant="subtitle1" color="textPrimary" gutterBottom>
+							<Typography
+								variant="subtitle1"
+								color="textPrimary"
+								gutterBottom
+								className="dark:text-white"
+							>
 								Public
 							</Typography>
-							<Typography variant="body2" color="textSecondary">
+							<Typography
+								variant="body2"
+								color="textSecondary"
+								className="dark:text-white"
+							>
 								Everyone can view my profile
 							</Typography>
 						</div>
@@ -40,10 +53,19 @@ const Privacy = ({ privateStatus, showPopup }) => {
 					control={<Radio />}
 					label={
 						<div>
-							<Typography variant="subtitle1" color="textPrimary" gutterBottom>
+							<Typography
+								variant="subtitle1"
+								color="textPrimary"
+								gutterBottom
+								className="dark:text-white"
+							>
 								Private
 							</Typography>
-							<Typography variant="body2" color="textSecondary">
+							<Typography
+								variant="body2"
+								color="textSecondary"
+								className="dark:text-white"
+							>
 								Nobody except me can view my profile
 							</Typography>
 						</div>
