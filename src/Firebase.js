@@ -95,10 +95,18 @@ import {
 	where,
 	setDoc,
 	getDoc,
+	updateDoc,
 	getDocs,
 	deleteDoc,
 } from "firebase/firestore";
-
+import {
+	ref,
+	getStorage,
+	uploadBytes,
+	getDownloadURL,
+	listAll,
+	deleteObject,
+} from "firebase/storage";
 const firebaseConfig = {
 	apiKey: "AIzaSyBQ7H_RNjzUOk5JbnzUrwYuzjldProxYXU",
 	authDomain: "library-2db48.firebaseapp.com",
@@ -207,4 +215,49 @@ export async function getUserDoc(username) {
 	return userDoc;
 }
 
-// import { getUserDoc, isUserSignedIn, usersRef } from '../../Firebase';
+export async function updateUserDoc(key, value) {
+	const userRef = doc(usersRef, auth.currentUser?.uid);
+
+	if (!userRef) return new Error("Couldn't update. Unknown error occured");
+
+	await updateDoc(userRef, {
+		[key]: value,
+	});
+}
+
+//storage logic
+const storage = getStorage(app);
+const usersStorageRef = ref(storage, "users");
+
+async function uploadImage(file, folderRef) {
+	//1 048 576 bytes === 1mb
+	if (file.size > 1048576) {
+		alert("File is too big!");
+		return;
+	}
+
+	const imageRef = ref(folderRef, file.name);
+	const img = await uploadBytes(imageRef, file);
+	const url = await getDownloadURL(img.ref);
+	return url;
+}
+
+function deleteFolderItems(folderRef) {
+	listAll(folderRef).then((listResults) =>
+		listResults.items.forEach((itemRef) => deleteObject(itemRef))
+	);
+}
+export async function updateImageInFolder(file, folder) {
+	const folderRef = ref(usersStorageRef, `${auth.currentUser.uid}/${folder}`);
+	deleteFolderItems(folderRef);
+
+	const url = await uploadImage(file, folderRef);
+	return url;
+}
+
+export async function deleteAllBooks() {
+	const querySnapshot = await getDocs(booksRef);
+	querySnapshot.forEach(async (doc) => {
+		await deleteDoc(doc.ref);
+	});
+}

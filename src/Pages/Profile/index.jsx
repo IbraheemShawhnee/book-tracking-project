@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { onSnapshot, collection } from "firebase/firestore";
-import { getUserDoc, isUserSignedIn, usersRef } from "../../Firebase";
+import { getUserDoc, usersRef, auth } from "../../Firebase";
 import { AnimatePresence } from "framer-motion";
 
 import Loading from "../../Components/Shared/Loading";
@@ -83,7 +83,7 @@ const Profile = () => {
 		);
 	}
 
-	if (userData.private && !isUserSignedIn()) {
+	if (userData.private && userData.name !== auth.currentUser.displayName) {
 		return (
 			<Box className="flex-1 dark:bg-gray-700 text-gray-800 dark:text-white py-4 px-6 lg:px-32 2xl:px-72">
 				<Info text="This user has set their profile to private" />
