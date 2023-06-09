@@ -83,4 +83,16 @@ Thank you for using and contributing to the BookBite project!
 
 
 ## Media 
+![Website Screenshot](/src/assets/Media_1.png)
+![Website Screenshot](/src/assets/Media_2.png)
+![Website Screenshot](/src/assets/Media_3.png)
+![Website Screenshot](/src/assets/Media_4.png)
+![Website Screenshot](/src/assets/Media_5.png)
+![Website Screenshot](/src/assets/Media_6.png)
+![Website Screenshot](/src/assets/Media_7.png)
+![Website Screenshot](/src/assets/Media_8.png)
+![Website Screenshot](/src/assets/Media_9.png)
+![Website Screenshot](/src/assets/Media_10.png)
+![Website Screenshot](/src/assets/Media_11.png)
+![Website Screenshot](/src/assets/Media_12.png)
 
